@@ -1,0 +1,13 @@
+#project-dialog img[role="button"],#project-dialog a[data-image-preview]{cursor:zoom-in}
+#project-dialog img[role="button"]:focus-visible{outline:2px solid var(--accent);outline-offset:5px}
+#image-preview{width:min(1200px,96vw);max-width:96vw;max-height:94vh;max-height:94dvh;height:auto;margin:auto;padding:16px;border:1px solid #ffffff24;background:#19211c;color:#f5f2eb;box-shadow:0 20px 80px #0006;overflow:auto}
+#image-preview::backdrop{background:#08120de8}
+#image-preview .image-preview-toolbar{display:flex;justify-content:flex-end;margin-bottom:12px}
+#image-preview button{position:static;border:1px solid #ffffff70;background:transparent;color:inherit;padding:7px 16px;font:14px/1.5 var(--sans);border-radius:3px}
+#image-preview button:hover{background:#ffffff18}
+#image-preview button:focus-visible{outline:2px solid #f5f2eb;outline-offset:3px}
+#image-preview figure{margin:0}
+#image-preview img{display:block;width:100%;height:auto;max-height:calc(94vh - 135px);max-height:calc(94dvh - 135px);object-fit:contain;background:transparent}
+#image-preview figcaption{margin-top:12px;font:13px/1.7 var(--sans);color:#e2e6df;text-align:center;overflow-wrap:anywhere}
+#image-preview figcaption:empty{display:none}
+@media(max-width:600px){#image-preview{width:96vw;padding:12px}#image-preview img{max-height:calc(94vh - 150px);max-height:calc(94dvh - 150px)}}

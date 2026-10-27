@@ -14,7 +14,7 @@
   const page = key => edit('page.' + key, d.page[key]);
   const projectField = (p, key) => edit('projects.' + d.projects.indexOf(p) + '.' + key, p[key]);
   const refreshEditable = () => { if(window.PortfolioEditor)window.PortfolioEditor.refresh(); else window.PortfolioLayout?.refresh(); };
-  const arrow = '<span aria-hidden="true">↗</span>';
+  const arrow = '';
   const asset = path => {
     if (!path) return '';
     if(path==='resume.pdf')path='documents/resume-reader.html';
@@ -65,7 +65,7 @@
       </section>
       <section id="works" class="works section"><div class="section-heading"><h2>${page('worksTitle')}</h2></div><div class="filters" role="group" aria-label="按作品类型筛选">${categories.map((c,i) => `<button type="button" data-filter="${esc(c)}" aria-pressed="${i === 0}">${esc(c)}</button>`).join('')}</div><p class="sr-only" id="filter-status" role="status"></p><div class="projects">${renderProjects(initialCategory)}</div><details class="source-note"><summary>${page('sourceTitle')}</summary><p>${page('sourceNote')}</p></details></section>
       <section id="contact" class="contact section"><h2>${page('contactTitle')}</h2><p class="contact-phone"><span data-copy-contact="phone">${page('contactIntro')}</span><button id="copy-phone" class="copy-button" type="button">复制手机号</button></p><div class="contact-line"><a class="email" data-email-link href="mailto:${esc(d.email)}"><span data-copy-contact="email">${edit('email', d.email)}</span> ${arrow}</a><button id="copy-email" class="copy-button" type="button">复制邮箱</button><span id="copy-status" role="status"></span></div><div class="contact-links"><a href="${esc(external(d.github))}" target="_blank" rel="noopener noreferrer">GitHub ${arrow}</a></div></section>
-    </main><footer><span>© ${new Date().getFullYear()} ${esc(d.name)}</span><a href="#">回到顶部 ↑</a></footer><dialog id="project-dialog" aria-labelledby="dialog-title"><button class="dialog-close" type="button" aria-label="关闭作品详情">×</button><div id="dialog-content"></div></dialog>`;
+    </main><footer><span>© ${new Date().getFullYear()} ${esc(d.name)}</span><a href="#">回到顶部</a></footer><dialog id="project-dialog" aria-labelledby="dialog-title"><button class="dialog-close" type="button" aria-label="关闭作品详情">×</button><div id="dialog-content"></div></dialog>`;
 
   window.PortfolioLayout?.init();
   window.PortfolioSections?.init();
