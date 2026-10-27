@@ -58,6 +58,7 @@
   function setEditing(value) {editing=value;if(!value)exit();}
   function toggle() {
     if(!editing)return;if(enabled){exit();return;}
+    window.PortfolioDisclosures?.exit();
     window.PortfolioSections?.exit();window.PortfolioLayout?.select(null);
     enabled=true;document.body.classList.add('divider-editing');
     document.querySelector('[data-action=dividers]')?.setAttribute('aria-pressed','true');

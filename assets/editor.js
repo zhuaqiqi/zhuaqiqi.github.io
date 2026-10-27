@@ -74,6 +74,8 @@
     window.PortfolioSections?.setEditing(active);
     window.PortfolioDividers?.refresh();
     window.PortfolioDividers?.setEditing(active);
+    window.PortfolioDisclosures?.refresh();
+    window.PortfolioDisclosures?.setEditing(active);
     document.querySelectorAll('[data-edit]').forEach(el => {
       if (active) {
         el.setAttribute('contenteditable', el.dataset.decoration ? 'false' : 'plaintext-only');
@@ -140,13 +142,14 @@
     entry = document.createElement('button'); entry.className='editor-entry'; entry.type='button'; entry.textContent='编辑文字';
     entry.addEventListener('click',start); document.body.append(entry);
     toolbar=document.createElement('aside'); toolbar.className='editor-toolbar'; toolbar.hidden=true; toolbar.setAttribute('aria-label','文字编辑工具');
-    toolbar.innerHTML='<div class="editor-hint"><strong>页面编辑</strong><p role="status" aria-live="polite"></p></div><div class="editor-actions"><button type="button" data-action="sections" aria-pressed="false">栏目边界</button><button type="button" data-action="dividers" aria-pressed="false">分隔线</button><button type="button" data-action="add">添加文本框</button><button type="button" data-action="decorate">添加装饰</button><button type="button" data-action="restore">恢复删除</button><button type="button" data-action="undo">撤销本次</button><button type="button" data-action="export">导出文字</button><button type="button" data-action="original" hidden>原草稿备份</button><button type="button" data-action="save" class="editor-save">保存修改</button><button type="button" data-action="finish">完成</button></div>';
+    toolbar.innerHTML='<div class="editor-hint"><strong>页面编辑</strong><p role="status" aria-live="polite"></p></div><div class="editor-actions"><button type="button" data-action="sections" aria-pressed="false">栏目边界</button><button type="button" data-action="dividers" aria-pressed="false">分隔线</button><button type="button" data-action="disclosures" aria-pressed="false">小三角</button><button type="button" data-action="add">添加文本框</button><button type="button" data-action="decorate">添加装饰</button><button type="button" data-action="restore">恢复删除</button><button type="button" data-action="undo">撤销本次</button><button type="button" data-action="export">导出文字</button><button type="button" data-action="original" hidden>原草稿备份</button><button type="button" data-action="save" class="editor-save">保存修改</button><button type="button" data-action="finish">完成</button></div>';
     document.body.append(toolbar);
     toolbar.querySelector('[data-action=save]').addEventListener('click',save);
     toolbar.querySelector('[data-action=sections]').addEventListener('click',()=>window.PortfolioSections?.toggle());
     toolbar.querySelector('[data-action=dividers]').addEventListener('click',()=>window.PortfolioDividers?.toggle());
-    toolbar.querySelector('[data-action=add]').addEventListener('click',()=>{window.PortfolioSections?.exit();window.PortfolioDividers?.exit();window.PortfolioLayout?.showAdd();});
-    toolbar.querySelector('[data-action=decorate]').addEventListener('click',()=>{window.PortfolioSections?.exit();window.PortfolioDividers?.exit();window.PortfolioLayout?.showAdd('decoration');});
+    toolbar.querySelector('[data-action=disclosures]').addEventListener('click',()=>window.PortfolioDisclosures?.toggle());
+    toolbar.querySelector('[data-action=add]').addEventListener('click',()=>{window.PortfolioSections?.exit();window.PortfolioDividers?.exit();window.PortfolioDisclosures?.exit();window.PortfolioLayout?.showAdd();});
+    toolbar.querySelector('[data-action=decorate]').addEventListener('click',()=>{window.PortfolioSections?.exit();window.PortfolioDividers?.exit();window.PortfolioDisclosures?.exit();window.PortfolioLayout?.showAdd('decoration');});
     toolbar.querySelector('[data-action=restore]').addEventListener('click',()=>{window.PortfolioLayout?.restore();refresh();});
     toolbar.querySelector('[data-action=export]').addEventListener('click',()=>download());
     const originalButton=toolbar.querySelector('[data-action=original]');

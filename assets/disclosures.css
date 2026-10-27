@@ -1,0 +1,19 @@
+summary.disclosure-marker-hidden{list-style:none;cursor:pointer}
+summary.disclosure-marker-hidden::marker{content:""}
+summary.disclosure-marker-hidden::-webkit-details-marker{display:none}
+.disclosure-settings[hidden]{display:none}
+.disclosure-settings{position:fixed;top:92px;right:20px;z-index:38;width:290px;max-height:calc(100vh - 220px);overflow:auto;padding:17px;background:#fbfaf5;border:1px solid #b9cbbb;border-radius:12px;box-shadow:0 8px 30px #163b2924;color:#29362e;font:13px/1.8 var(--sans)}
+.disclosure-settings p{font-size:12px;color:#687268;line-height:1.8;margin:12px 0}
+.disclosure-row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;padding:12px 0;border-top:1px solid #d3d8cb}
+.disclosure-row>span{overflow-wrap:anywhere;font-size:13px}
+.disclosure-settings button:not(.box-panel-heading button){padding:8px 10px;background:transparent;border:1px solid #bdcbbb;border-radius:5px;color:#244b3a;font:13px/1.6 var(--sans);min-height:38px}
+.disclosure-settings button:disabled{opacity:.45;cursor:default}
+.disclosure-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.disclosure-settings>[data-disclosure-done]{display:block;width:100%;margin-top:10px}
+.disclosure-editing main summary,.disclosure-editing #dialog-content summary{outline:1px dashed #52916a;outline-offset:6px;background:#e4eddd80}
+.disclosure-editing summary.disclosure-marker-hidden{outline-color:#a6afa1;background:#eef0e980}
+.disclosure-editing [data-edit]{pointer-events:none;outline:none!important;background:transparent!important}
+.disclosure-editing .box-inspector,.disclosure-editing .box-move-handle{display:none!important}
+.editor-actions [data-action=disclosures][aria-pressed=true]{background:#e1eadb;border-color:#367b51;color:#244b3a}
+@media(max-width:800px){.disclosure-settings{top:auto;left:12px;right:12px;bottom:180px;width:auto;max-height:45vh;max-height:45dvh;padding:14px}.disclosure-settings button:not(.box-panel-heading button){min-height:44px}.disclosure-settings p{font-size:13px}.disclosure-row>span{font-size:14px}}
+@media print{.disclosure-settings{display:none!important}}

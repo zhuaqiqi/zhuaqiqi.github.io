@@ -71,6 +71,7 @@
   window.PortfolioLayout?.init();
   window.PortfolioSections?.init();
   window.PortfolioDividers?.init();
+  window.PortfolioDisclosures?.init();
   window.PortfolioText?.init();
   window.PortfolioEditor?.init();
   const grid = document.querySelector('.projects');

@@ -107,7 +107,7 @@
     Object.keys(definitions).forEach(apply);
   }
   function toggle() {
-    if(!editing)return;window.PortfolioDividers?.exit();if(enabled){exit();window.PortfolioEditor?.notify('已返回文字编辑。');return;}
+    if(!editing)return;window.PortfolioDividers?.exit();window.PortfolioDisclosures?.exit();if(enabled){exit();window.PortfolioEditor?.notify('已返回文字编辑。');return;}
     const current=document.querySelector('.box-selected');
     const inView=Object.keys(definitions).filter(id=>{const r=node(id)?.getBoundingClientRect();return r&&r.top<innerHeight*.5&&r.bottom>100;});
     const containing=current?Object.keys(definitions).filter(id=>node(id)?.contains(current)):[];
