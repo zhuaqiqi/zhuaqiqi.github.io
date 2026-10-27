@@ -15,6 +15,7 @@
   const projectField = (p, key) => edit('projects.' + d.projects.indexOf(p) + '.' + key, p[key]);
   const refreshEditable = () => { if(window.PortfolioEditor)window.PortfolioEditor.refresh(); else window.PortfolioLayout?.refresh(); };
   const arrow = '';
+  const enhance = html => window.PortfolioMedia?.enhance(html) || html;
   const asset = path => {
     if (!path) return '';
     if(path==='resume.pdf')path='documents/resume-reader.html?v=20261027-preview-resume2';
@@ -35,7 +36,7 @@
   const categories = d.projectCategories || [...new Set(d.projects.map(p => p.category))];
   const initialCategory = categories[0];
   const renderProjects = category => d.projects.filter(p => p.category === category).map(card).join('');
-  document.getElementById('site').innerHTML = `
+  document.getElementById('site').innerHTML = enhance(`
     <header class="nav"><a class="brand" href="#" aria-label="赵佳琦，返回首页">${edit('name', d.name)}<span class="name-dot" aria-hidden="true">。</span></a><nav aria-label="主导航"><a href="#about">${page('navAbout')}</a><a href="#resume">${page('navResume')}</a><a href="#works">${page('navWorks')}</a><a href="#contact">${page('navContact')}</a></nav></header>
     <main id="main">
       <section class="hero editorial-hero">
@@ -65,7 +66,7 @@
       </section>
       <section id="works" class="works section"><div class="section-heading"><h2>${page('worksTitle')}</h2></div><div class="filters" role="group" aria-label="按作品类型筛选">${categories.map((c,i) => `<button type="button" data-filter="${esc(c)}" aria-pressed="${i === 0}">${esc(c)}</button>`).join('')}</div><p class="sr-only" id="filter-status" role="status"></p><div class="projects">${renderProjects(initialCategory)}</div><details class="source-note"><summary>${page('sourceTitle')}</summary><p>${page('sourceNote')}</p></details></section>
       <section id="contact" class="contact section"><h2>${page('contactTitle')}</h2><p class="contact-phone"><span data-copy-contact="phone">${page('contactIntro')}</span><button id="copy-phone" class="copy-button" type="button">复制手机号</button></p><div class="contact-line"><a class="email" data-email-link href="mailto:${esc(d.email)}"><span data-copy-contact="email">${edit('email', d.email)}</span> ${arrow}</a><button id="copy-email" class="copy-button" type="button">复制邮箱</button><span id="copy-status" role="status"></span></div><div class="contact-links"><a href="${esc(external(d.github))}" target="_blank" rel="noopener noreferrer">GitHub ${arrow}</a></div></section>
-    </main><footer><span>© ${new Date().getFullYear()} ${esc(d.name)}</span><a href="#">回到顶部</a></footer><dialog id="project-dialog" aria-labelledby="dialog-title"><button class="dialog-close" type="button" aria-label="关闭作品详情">×</button><div id="dialog-content"></div></dialog>`;
+    </main><footer><span>© ${new Date().getFullYear()} ${esc(d.name)}</span><a href="#">回到顶部</a></footer><dialog id="project-dialog" aria-labelledby="dialog-title"><button class="dialog-close" type="button" aria-label="关闭作品详情">×</button><div id="dialog-content"></div></dialog>`);
 
   window.PortfolioLayout?.init();
   window.PortfolioSections?.init();
@@ -77,7 +78,7 @@
   document.querySelectorAll('[data-filter]').forEach(button => button.addEventListener('click', () => {
     document.querySelectorAll('[data-filter]').forEach(b => b.setAttribute('aria-pressed', String(b === button)));
     const projects = d.projects.filter(p => p.category === button.dataset.filter);
-    grid.innerHTML = projects.map(card).join('');
+    grid.innerHTML = enhance(projects.map(card).join(''));
     refreshEditable();
     document.getElementById('filter-status').textContent = `显示${button.dataset.filter}作品，共 ${projects.length} 项`;
   }));
@@ -94,7 +95,7 @@
     }).join('');
     return `${children ? `<div class="collection-list">${children}</div>` : ''}${(p.body || []).map((paragraph,i) => `<p class="body-paragraph">${edit('projects.' + d.projects.indexOf(p) + '.body.' + i, paragraph)}</p>`).join('')}
       ${images.map(i => `<figure class="detail-image"><img src="${esc(asset(i.src))}" alt="${esc(i.alt || i.caption || p.title)}" loading="lazy">${i.caption ? `<figcaption>${esc(i.caption)}</figcaption>` : ''}</figure>`).join('')}
-      ${video ? `<video controls controlslist="nodownload" playsinline preload="metadata" ${p.coverImage ? `poster="${esc(asset(p.coverImage))}"` : ''}><source src="${esc(video)}">当前浏览器暂不支持播放此视频。</video>` : ''}
+      ${video ? `<video controls controlslist="nodownload" playsinline preload="none" ${p.coverImage ? `poster="${esc(asset(p.coverImage))}"` : ''}><source src="${esc(video)}">当前浏览器暂不支持播放此视频。</video>` : ''}
       ${videos.length || files.length ? `<div class="work-resources"><h3>${page('resourcesTitle')}</h3>${videos.map(v => `<div><a href="${esc(external(v.url))}" target="_blank" rel="noopener noreferrer">${esc(v.title || '观看视频')} ${arrow}</a>${v.password ? `<span>提取码：${esc(v.password)}</span>` : ''}</div>`).join('')}${files.map(f => `<div><a href="${esc(asset(f.path))}" target="_blank" rel="noopener">${esc(f.title || '阅读作品文件')} ${arrow}</a></div>`).join('')}</div>` : ''}`;
   }
   const dialog = document.getElementById('project-dialog');
@@ -109,7 +110,7 @@
     const feature=p.presentation?.type==='feature'&&window.PortfolioFeature;
     dialog.classList.toggle('carnivore-dialog',!!theatre);
     dialog.classList.toggle('case-dialog',!!(theatre||shortdrama||shortfilm||series||feature));
-    document.getElementById('dialog-content').innerHTML = theatre ? window.PortfolioTheatre.render(p,{edit,projectField,asset,external,esc,arrow}) : shortdrama ? window.PortfolioShortdrama.render(p,{edit,projectField,asset,external,esc,arrow}) : shortfilm ? window.PortfolioShortfilm.render(p,{edit,projectField,asset,external,esc,arrow}) : series ? window.PortfolioSeries.render(p,{edit,projectField,asset,external,esc,arrow}) : feature ? window.PortfolioFeature.render(p,{edit,projectField,asset,external,esc,arrow}) : `<div class="dialog-cover">${cover(p, true)}</div><div class="dialog-copy"><p class="dialog-category">${esc(p.category)}${p.year && p.year !== '—' ? ` · ${projectField(p, 'year')}` : ''}</p><h2 id="dialog-title">${projectField(p, 'title')}</h2><p class="dialog-meta">${projectField(p, 'role')}${p.role && p.length ? ' · ' : ''}${projectField(p, 'length')}</p><div class="optional-detail"><h3>${page('storyTitle')}</h3><p>${projectField(p, 'summary')}</p></div><div class="optional-detail"><h3>${page('recognitionTitle')}</h3><p>${projectField(p, 'note')}</p></div>${media(p)}<a class="text-link" href="mailto:${esc(d.email)}?subject=${encodeURIComponent('关于《' + p.title + '》的交流')}">${page('contactAuthor')} ${arrow}</a></div>`;
+    document.getElementById('dialog-content').innerHTML = enhance(theatre ? window.PortfolioTheatre.render(p,{edit,projectField,asset,external,esc,arrow}) : shortdrama ? window.PortfolioShortdrama.render(p,{edit,projectField,asset,external,esc,arrow}) : shortfilm ? window.PortfolioShortfilm.render(p,{edit,projectField,asset,external,esc,arrow}) : series ? window.PortfolioSeries.render(p,{edit,projectField,asset,external,esc,arrow}) : feature ? window.PortfolioFeature.render(p,{edit,projectField,asset,external,esc,arrow}) : `<div class="dialog-cover">${cover(p, true)}</div><div class="dialog-copy"><p class="dialog-category">${esc(p.category)}${p.year && p.year !== '—' ? ` · ${projectField(p, 'year')}` : ''}</p><h2 id="dialog-title">${projectField(p, 'title')}</h2><p class="dialog-meta">${projectField(p, 'role')}${p.role && p.length ? ' · ' : ''}${projectField(p, 'length')}</p><div class="optional-detail"><h3>${page('storyTitle')}</h3><p>${projectField(p, 'summary')}</p></div><div class="optional-detail"><h3>${page('recognitionTitle')}</h3><p>${projectField(p, 'note')}</p></div>${media(p)}<a class="text-link" href="mailto:${esc(d.email)}?subject=${encodeURIComponent('关于《' + p.title + '》的交流')}">${page('contactAuthor')} ${arrow}</a></div>`);
     refreshEditable();
     dialog.showModal();
     dialog.scrollTop=0;

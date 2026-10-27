@@ -34,7 +34,7 @@
   function open(target) {
     const link = target.closest('a[data-image-preview]');
     const photo = link?.querySelector('img') || target.closest('img');
-    const src = link?.getAttribute('href') || photo?.currentSrc || photo?.src;
+    const src = photo?.dataset.previewSrc || window.PortfolioMedia?.source(link?.getAttribute('href')) || link?.getAttribute('href') || photo?.currentSrc || photo?.src;
     if (!src || !detail.open) return;
     returnFocus = link || photo;
     image.src = src;

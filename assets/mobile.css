@@ -1,0 +1,84 @@
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+:where(.editorial img){height:auto}
+@media(min-width:761px) and (max-width:1000px){
+ .editorial [data-edit]:not([data-decoration]){position:static!important;left:auto!important;top:auto!important;width:auto!important;height:auto!important;min-height:0!important;max-width:100%!important;white-space:pre-wrap!important}
+ .editorial .decoration-block{display:none}
+ .editorial h1{font-size:clamp(44px,6vw,64px);white-space:normal}
+ .editorial h1 [data-edit]{display:block;white-space:pre-line!important}
+ .editorial main>.section{padding:56px 6%!important;min-height:0!important}
+ .editorial .resume-part{padding:0!important;min-height:0!important}
+}
+@media(max-width:760px){
+ .editorial{font-size:16px;line-height:1.9}
+ .editorial :is(main,section,article,header,nav,figure,.editorial-main,.about-copy,.education-main,.award-copy,.dialog-copy,.project-info){min-width:0}
+ .editorial :is(p,h1,h2,h3,h4,dd,dt,li,a,figcaption){overflow-wrap:anywhere;word-break:normal}
+ /* Desktop drag positions and fixed text boxes become natural document flow. */
+ .editorial [data-edit]:not([data-decoration]){position:static!important;left:auto!important;top:auto!important;width:auto!important;height:auto!important;min-height:0!important;max-width:100%!important;font-size:inherit!important;line-height:inherit!important;letter-spacing:inherit!important;white-space:pre-wrap!important}
+ .editorial [data-rich-run]{font-size:inherit!important;line-height:inherit!important;letter-spacing:inherit!important}
+ .editorial .decoration-block{display:none}
+ .editorial .nav{display:block;padding:18px max(20px,5vw) 10px}
+ .editorial .brand{display:block;white-space:normal;font-size:20px;line-height:1.5;letter-spacing:.5px}
+ .editorial .nav nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;margin:12px 0 0;padding:0;border:0;font-size:14px;text-align:center}
+ .editorial .nav nav a{display:flex;align-items:center;justify-content:center;min-height:44px}
+ .editorial main>.section{padding:44px max(20px,5vw)!important;min-height:0!important}
+ .editorial .editorial-hero{grid-template-columns:minmax(0,1fr) minmax(88px,28%);gap:14px 18px;align-items:center;padding:32px max(20px,5vw) 40px!important;min-height:0!important}
+ .editorial .editorial-main{display:contents}
+ .editorial .hero-role{grid-column:1;grid-row:1;font-size:14px;line-height:1.7;align-self:end}
+ .editorial h1{grid-column:1;grid-row:2;font-size:clamp(30px,8.5vw,48px);line-height:1.5;letter-spacing:0;margin:0;white-space:normal;align-self:start}
+ .editorial h1 [data-edit]{display:block;white-space:pre-line!important}
+ .editorial .editorial-intro{grid-column:1/-1;grid-row:3;margin-top:8px}
+ .editorial .editorial-intro p{font-size:15px;line-height:1.95}
+ .editorial .editorial-portrait{grid-column:2;grid-row:1/span 2;width:100%;padding:5px;margin:0;align-self:center}
+ .editorial .hero-actions{gap:14px 24px;margin-top:22px}
+ .editorial :is(.button,.hero-actions .text-link){font-size:15px;min-height:44px;display:inline-flex;align-items:center}
+ .editorial .section-heading h2{font-size:30px;line-height:1.5}
+ .editorial .about{gap:20px}
+ .editorial :is(.lead,.about-copy>p+p,.custom-text-block){font-size:16px;line-height:2}
+ .editorial .custom-text-block{margin:18px 0}
+ .editorial .custom-text-block [data-edit]{display:block}
+ .editorial .resume-part{padding:0!important;min-height:0!important}
+ .editorial .resume-part>.subheading{font-size:22px;line-height:1.5}
+ .editorial .education-card h4{font-size:22px;line-height:1.65}
+ .editorial :is(.education-card .study-degree,.education-card .education-courses,.education-highlights .gpa,.education-highlights .language){font-size:15px;line-height:1.95}
+ .editorial .education-card .study-date{font-size:14px}
+ .editorial .resume-awards .awards{grid-template-columns:1fr}
+ .editorial .resume-awards .awards h4{font-size:16px;line-height:1.9}
+ .editorial .resume-awards .awards p{font-size:14px;line-height:1.95}
+ .editorial .filters{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:25px}
+ .editorial .filters button{font-size:15px;line-height:1.5;padding:10px 14px;min-height:46px;max-width:100%;white-space:normal}
+ .editorial .projects{grid-template-columns:1fr;gap:34px}
+ .editorial .project:nth-child(even){margin:0}
+ .editorial .project-info h3{font-size:23px;line-height:1.65}
+ .editorial .project>.work-meta{font-size:14px;line-height:1.9}
+ .editorial .project>.work-summary{display:block;overflow:visible;-webkit-line-clamp:unset;font-size:15px;line-height:1.95}
+ .editorial .project>.work-release{font-size:13px}
+ .editorial #project-dialog{width:100%;max-width:100vw;height:100vh;height:100dvh;max-height:100vh;max-height:100dvh;margin:0;padding:0;border:0;border-radius:0;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+ .editorial #project-dialog .dialog-close{position:fixed;float:none;top:max(10px,env(safe-area-inset-top));right:max(14px,env(safe-area-inset-right));width:44px;height:44px;margin:0;z-index:10;box-shadow:0 2px 12px #182f2526}
+ .editorial #project-dialog .dialog-copy{padding:62px max(20px,5vw) max(36px,env(safe-area-inset-bottom));max-width:100%;margin:0}
+ .editorial #project-dialog :is(h2,.shortdrama-heading h2,.film-intro h2,.series-intro h2,.feature-intro h2){font-size:clamp(26px,7.4vw,34px);line-height:1.6;letter-spacing:.5px;white-space:normal}
+ .editorial #project-dialog :is(.case-section>h3,.optional-detail>h3){font-size:23px;line-height:1.6}
+ .editorial #project-dialog :is(.case-section>p,.case-synopsis p,.case-introduction .case-lede,.optional-detail>p,.body-paragraph,.shortdrama-characters p,.series-characters p,.collection-item>p,.film-collection p,.case-themes p,.case-timeline p,.shortdrama-award p){font-size:16px;line-height:2}
+ .editorial #project-dialog :is(.dialog-category,.dialog-meta,.film-genres,.film-alias,.shortdrama-form,.series-form){font-size:14px;line-height:1.9}
+ .editorial #project-dialog .case-facts{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+ .editorial #project-dialog .case-facts dd{font-size:15px;line-height:1.9}
+ .editorial #project-dialog .case-facts dt{font-size:13px}
+ .editorial #project-dialog .series-title-row{flex-direction:column;align-items:flex-start;gap:8px}
+ .editorial #project-dialog .series-title-row .case-small-link{margin:0;font-size:14px;white-space:normal}
+ .editorial #project-dialog .case-archive-gallery{grid-template-columns:1fr}
+ .editorial #project-dialog .case-archive-gallery .case-image:last-child{max-width:100%;grid-column:auto}
+ .editorial #project-dialog :is(.case-image figcaption,.film-video figcaption,.stage-video-caption){font-size:13px;line-height:1.9}
+ .editorial #project-dialog :is(.case-resources a,.work-resources a,.case-small-link){font-size:14px;line-height:1.9;min-height:44px;display:inline-flex;align-items:center;white-space:normal}
+ .editorial #project-dialog .simple-records li{flex-wrap:wrap;gap:8px}
+ .editorial #project-dialog .simple-records h4{font-size:16px;line-height:1.85}
+ .editorial #project-dialog .case-nav{position:static;gap:8px 16px}
+ .editorial #project-dialog .case-nav a{min-height:40px;display:inline-flex;align-items:center;font-size:14px}
+ .editorial .contact h2{font-size:32px}
+ .editorial .contact .contact-phone{font-size:16px;line-height:1.9}
+ .editorial .contact-line{flex-wrap:wrap;gap:14px}
+ .editorial .email{font-size:clamp(21px,6vw,28px);line-height:1.7;max-width:100%}
+ .editorial :is(.copy-button,.contact-links a){min-height:44px;font-size:14px}
+ .editorial footer{font-size:12px;gap:12px;padding:22px max(20px,5vw)}
+}
+@media(max-width:360px){.editorial #project-dialog .case-facts{grid-template-columns:1fr}.editorial .hero-actions{gap:12px 18px}.editorial .filters button{padding-inline:11px}.editorial #project-dialog .feature-record{grid-template-columns:1fr;gap:16px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.editorial *{transition:none!important}}
+@media(max-width:760px){body[data-document-reader]{font-size:16px;line-height:1.95}body[data-document-reader] :is(p,h1,h2,h3,a,li){overflow-wrap:anywhere}body[data-document-reader] header{gap:8px;padding:12px 16px}body[data-document-reader] header h1{font-size:20px;line-height:1.5}body[data-document-reader] header nav{gap:8px 18px;font-size:14px}body[data-document-reader] header a{min-height:40px;display:inline-flex;align-items:center}body[data-document-reader] main{max-width:100%;margin:18px auto 36px;padding-inline:14px}body[data-document-reader] main :is(p,li){font-size:16px;line-height:1.95}body[data-document-reader] figure{max-width:100%}body[data-document-reader] img{max-width:100%;height:auto}}
