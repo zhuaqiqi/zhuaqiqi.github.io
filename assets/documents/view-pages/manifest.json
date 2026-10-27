@@ -1,0 +1,44 @@
+[
+  {
+    "id": "balance",
+    "title": "地中衡",
+    "pages": 106,
+    "reader": "documents/feature-scripts/balance.html"
+  },
+  {
+    "id": "iwant",
+    "title": "我想我想我想",
+    "pages": 82,
+    "reader": "documents/feature-scripts/iwant.html"
+  },
+  {
+    "id": "home",
+    "title": "雁过留痕",
+    "pages": 51,
+    "reader": "documents/feature-scripts/home.html"
+  },
+  {
+    "id": "fireworks",
+    "title": "干果、烟花与我们的尸体",
+    "pages": 84,
+    "reader": "documents/feature-scripts/fireworks.html"
+  },
+  {
+    "id": "mrs-yu",
+    "title": "老余太太要成家",
+    "pages": 46,
+    "reader": "documents/feature-scripts/mrs-yu.html"
+  },
+  {
+    "id": "winter",
+    "title": "此冬未恙",
+    "pages": 15,
+    "reader": "documents/feature-scripts/winter.html"
+  },
+  {
+    "id": "resume",
+    "title": "赵佳琦简历",
+    "pages": 10,
+    "reader": "documents/resume-reader.html"
+  }
+]
