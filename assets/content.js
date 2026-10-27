@@ -1392,7 +1392,7 @@ window.PORTFOLIO = {
       "summary": "九个短片剧本与故事大纲，围绕儿童与家庭、社会处境、乡土寓言和实验叙事展开。",
       "note": "",
       "cover": "paper",
-      "title": "其他未拍摄作品",
+      "title": "其他未拍摄短片剧本",
       "category": "电影短片",
       "children": [
         {
@@ -2888,7 +2888,14 @@ window.PORTFOLIO = {
       },
       "works:page.worksTitle": {
         "fontSize": 36
-      }
+      },
+      "disclosure:page:works:0": {
+        "hidden": true
+      },
+      "disclosure:project:xiyao:xiyao-records:0": {
+        "hidden": true
+      },
+      "works:cover:project:unfilmed:title": {}
     },
     "blocks": [
       {
