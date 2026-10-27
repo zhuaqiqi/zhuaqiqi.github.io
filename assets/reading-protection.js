@@ -1,5 +1,6 @@
 (() => {
   'use strict';
+  if(window.PortfolioReading)return;
   const rawFile=/\.(?:pdf|docx?|zip)(?:[?#]|$)/i;
   const element=node=>node?.nodeType===1?node:node?.parentElement;
   const contact=node=>element(node)?.closest('#contact [data-copy-contact]');

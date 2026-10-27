@@ -37,7 +37,10 @@
     const src = photo?.dataset.previewSrc || window.PortfolioMedia?.source(link?.getAttribute('href')) || link?.getAttribute('href') || photo?.currentSrc || photo?.src;
     if (!src || !detail.open) return;
     returnFocus = link || photo;
-    image.src = src;
+    image.src = photo?.currentSrc || photo?.src || src;
+    if(image.src!==new URL(src,document.baseURI).href){
+      const large=new Image();large.onload=()=>{if(preview.open&&returnFocus===(link||photo))image.src=src;};large.src=src;
+    }
     image.alt = photo?.alt || link?.textContent.trim() || '作品图片';
     caption.textContent = returnFocus.closest('figure')?.querySelector('figcaption')?.textContent.trim() || image.alt;
     preview.showModal();

@@ -2,7 +2,7 @@
 window.PORTFOLIO = {
   "name": "赵佳琦的个人作品集",
   "romanName": "Jiaqi Zhao",
-  "email": "1841695420@qq.com",
+  "email": "zhaojiaqi77777@163.com",
   "github": "https://github.com/zhuaqiqi",
   "education": "上海大学 / 上海电影学院",
   "degree": "戏剧与影视专业（编剧方向）/硕士",

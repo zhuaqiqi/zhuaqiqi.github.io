@@ -36,7 +36,9 @@
   const categories = d.projectCategories || [...new Set(d.projects.map(p => p.category))];
   const initialCategory = categories[0];
   const renderProjects = category => d.projects.filter(p => p.category === category).map(card).join('');
-  document.getElementById('site').innerHTML = enhance(`
+  const site=document.getElementById('site');
+  const staticPage=site.dataset.staticPortfolio==='true'&&!['127.0.0.1','localhost','[::1]'].includes(location.hostname)&&location.protocol!=='file:';
+  if(!staticPage)site.innerHTML = enhance(`
     <header class="nav"><a class="brand" href="#" aria-label="赵佳琦，返回首页">${edit('name', d.name)}<span class="name-dot" aria-hidden="true">。</span></a><nav aria-label="主导航"><a href="#about">${page('navAbout')}</a><a href="#resume">${page('navResume')}</a><a href="#works">${page('navWorks')}</a><a href="#contact">${page('navContact')}</a></nav></header>
     <main id="main">
       <section class="hero editorial-hero">
@@ -74,12 +76,14 @@
   window.PortfolioDisclosures?.init();
   window.PortfolioText?.init();
   window.PortfolioEditor?.init();
+  window.PortfolioMedia?.activate(site);
   const grid = document.querySelector('.projects');
   document.getElementById('filter-status').textContent = `显示${initialCategory}作品，共 ${d.projects.filter(p => p.category === initialCategory).length} 项`;
   document.querySelectorAll('[data-filter]').forEach(button => button.addEventListener('click', () => {
     document.querySelectorAll('[data-filter]').forEach(b => b.setAttribute('aria-pressed', String(b === button)));
     const projects = d.projects.filter(p => p.category === button.dataset.filter);
     grid.innerHTML = enhance(projects.map(card).join(''));
+    window.PortfolioMedia?.activate(grid);
     refreshEditable();
     document.getElementById('filter-status').textContent = `显示${button.dataset.filter}作品，共 ${projects.length} 项`;
   }));
@@ -115,6 +119,7 @@
     refreshEditable();
     dialog.showModal();
     dialog.scrollTop=0;
+    window.PortfolioMedia?.activate(dialog);
     document.dispatchEvent(new CustomEvent('portfolio:dialog-open'));
     document.body.style.overflow = 'hidden';
   }

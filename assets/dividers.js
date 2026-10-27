@@ -33,6 +33,7 @@
         Object.entries(edges).forEach(([edge,position])=>{
           const kind=selector.replace(/[^a-zA-Z0-9]+/g,'-');
           const key='divider:'+context+':'+kind+':'+(node.id||index)+':'+edge;
+          if(fields()[key]?.hidden)node.classList.add('divider-hidden-'+edge);
           const borderStyle=style.getPropertyValue('border-'+edge+'-style');
           const width=parseFloat(style.getPropertyValue('border-'+edge+'-width'));
           const color=style.getPropertyValue('border-'+edge+'-color');
