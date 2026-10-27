@@ -17,14 +17,14 @@
   const arrow = '';
   const asset = path => {
     if (!path) return '';
-    if(path==='resume.pdf')path='documents/resume-reader.html';
+    if(path==='resume.pdf')path='documents/resume-reader.html?v=20261027-preview-resume2';
     if(/\.(?:pdf|docx?|zip)(?:[?#]|$)/i.test(path))return '';
     if (/^https?:\/\//i.test(path)) return path;
     if (/^(?:[a-z][a-z\d+.-]*:|\/)/i.test(path) || path.split('/').includes('..')) return '';
     return base + path;
   };
   const external = url => /^https?:\/\//i.test(url || '') ? url : '';
-  const pdf = asset('documents/resume-reader.html');
+  const pdf = asset('documents/resume-reader.html?v=20261027-preview-resume2');
   const cover = (p, detail = false) => {
     const image = asset(p.coverImage);
     return image
