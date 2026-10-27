@@ -1,0 +1,99 @@
+.shortdrama-intro{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:35px;align-items:center;margin:4px 0 30px}
+.shortdrama-heading{min-width:0}.editorial .shortdrama-heading h2{font-size:42px;line-height:1.5;margin:10px 0 13px;letter-spacing:2px;text-wrap:balance;overflow-wrap:anywhere}
+.shortdrama-form{font-size:14px;color:var(--muted);margin:0 0 25px}
+.shortdrama-heading .case-facts{grid-template-columns:1fr 1fr;gap:16px;border-bottom:0;padding:0;margin:0}
+.shortdrama-cover{min-width:0}.shortdrama-cover>a{display:block}.shortdrama-cover img{width:100%;height:auto}.shortdrama-cover figcaption{font-size:11px;color:var(--muted);text-align:right;margin-top:8px}
+.shortdrama-characters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px}
+.shortdrama-characters article{min-width:0;padding:18px 0;border-top:1px solid var(--line)}
+.shortdrama-characters h4{font-size:17px;line-height:1.8;font-weight:500;color:var(--accent);margin-bottom:9px}
+.shortdrama-characters p{font-size:14px;line-height:2;color:var(--muted)}
+.shortdrama-award{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:45px;align-items:start}
+.shortdrama-award h4{font:500 30px/1.5 var(--serif);color:var(--accent);margin-bottom:16px}
+.shortdrama-award p{font-size:15px;line-height:2;color:var(--muted)}
+.shortdrama-award .shortdrama-award-date{font-size:13px;margin:18px 0 4px}
+.project[data-project=tree] .work-image{aspect-ratio:1.5}.project[data-project=tree] .work-image img{object-fit:contain}
+.project:is([data-project=chef],[data-project=libai],[data-project=water-cloud],[data-project=vr]) .work-image{aspect-ratio:1.5}
+.project:is([data-project=chef],[data-project=libai],[data-project=water-cloud],[data-project=vr]) .work-image img{object-fit:contain}
+.shortdrama-award.without-certificate{grid-template-columns:1fr}
+.shortdrama-release{padding:19px 23px;background:var(--panel);border-left:3px solid #879b78}
+.shortdrama-release>p{font-size:18px;line-height:1.8;color:var(--accent)}
+.editorial .project>.work-release{display:block;align-self:flex-start;margin:0 0 10px;padding:3px 9px;border-left:2px solid #879b78;background:var(--panel);color:var(--accent);font-size:12px;line-height:1.8;overflow:visible}
+.project[data-project=halfway] .work-image{aspect-ratio:1.5}.project[data-project=halfway] .work-image img{object-fit:contain}
+.rotated-certificate>a{position:relative;aspect-ratio:4/3;overflow:hidden}
+.rotated-certificate img{position:absolute;left:50%;top:50%;width:75%;height:auto;max-width:none;transform:translate(-50%,-50%) rotate(-90deg)}
+.stage-simple-case .shortdrama-intro{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr)}
+.stage-simple-case .shortdrama-cover img{max-height:none;aspect-ratio:3/2;object-fit:contain}
+.stage-simple-case .shortdrama-heading h2{font-size:36px}
+.simple-records{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.simple-records li{display:flex;justify-content:space-between;gap:20px;align-items:center;padding:15px 0;border-bottom:1px solid var(--line)}
+.simple-records h4{font-size:16px;line-height:1.8;font-weight:500;color:var(--accent)}
+.simple-records p{font-size:13px;line-height:1.8;color:var(--muted)}
+.simple-records .case-small-link{font-size:12px;white-space:nowrap;margin:0}
+.editorial .stage-simple-case .stage-video{display:block;width:100%;aspect-ratio:16/9;height:auto;max-height:none;margin:0;background:#121612}
+.stage-simple-case .stage-video-caption{font-size:12px;color:var(--muted);margin-top:10px}
+.stage-simple-case .case-stage-gallery .case-image>a{height:340px;background:var(--panel)}
+.stage-simple-case .case-stage-gallery img{height:100%;object-fit:contain}
+.editorial .project[data-project=taste] .work-image{aspect-ratio:1.3;background:#e6e4dc}
+.project[data-project=taste] .work-image img{object-fit:contain}
+@media(max-width:700px){.stage-simple-case .shortdrama-intro{grid-template-columns:1fr}.stage-simple-case .shortdrama-cover{width:100%;justify-self:stretch}.stage-simple-case .shortdrama-heading h2{font-size:30px}.simple-records li{gap:15px}.simple-records h4{font-size:15px}.stage-simple-case .case-stage-gallery .case-image>a{height:300px}}
+.editorial .project[data-project=taste] .work-image{aspect-ratio:3/2;padding:0}
+.editorial .project[data-project=taste] .work-image img{width:100%;height:100%;object-fit:contain;object-position:center}
+@media(max-width:700px){
+ .shortdrama-intro{grid-template-columns:1fr;gap:23px;margin-top:8px;margin-bottom:24px}.shortdrama-cover{grid-row:1}.editorial .shortdrama-heading h2{font-size:34px;margin:7px 0 9px}.shortdrama-form{font-size:13px;margin-bottom:19px}
+ .shortdrama-cover figcaption{font-size:10px}.shortdrama-characters{grid-template-columns:1fr}.shortdrama-characters article{padding:16px 0}.shortdrama-characters h4{font-size:16px;margin-bottom:7px}.shortdrama-characters p{font-size:13px}
+ .shortdrama-award{grid-template-columns:1fr;gap:25px}.shortdrama-award>.case-image{width:min(260px,100%);justify-self:center}.shortdrama-award h4{font-size:27px;margin-bottom:13px}.shortdrama-award p{font-size:14px}
+}
+
+/* 横版原剧照封面与获奖现场照片。 */
+.editorial .project[data-project=robbery] .work-image{aspect-ratio:3/2;padding:0;background:#10151c}
+.editorial .project[data-project=robbery] .work-image img{width:100%;height:100%;object-fit:contain;object-position:center}
+.shortdrama-case[data-case-project=robbery] .shortdrama-award{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:30px;align-items:center}
+@media(max-width:700px){.shortdrama-case[data-case-project=robbery] .shortdrama-award{grid-template-columns:1fr}.shortdrama-case[data-case-project=robbery] .shortdrama-award>.case-image{width:100%;max-width:420px}}
+
+.simple-highlights{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:27px 0 17px;padding:20px 0;border-block:1px solid var(--line);gap:24px}
+.simple-highlights>div{display:flex;flex-direction:column;gap:7px;min-width:0}
+.simple-highlights dt{order:2;font-size:13px;line-height:1.8;color:var(--muted)}
+.simple-highlights dd{margin:0;font:500 30px/1.5 var(--sans);color:var(--accent)}
+.case-section .simple-source-note{font-size:12px;color:var(--muted);line-height:1.9;margin:0}
+.simple-source-note .case-small-link{margin:0 0 0 10px}
+.shortdrama-case[data-case-project=serial] .shortdrama-heading h2{letter-spacing:1px}
+.shortdrama-case[data-case-project=serial] .case-stage-gallery .case-image>a{height:auto;aspect-ratio:3/2}
+@media(max-width:700px){.simple-highlights{gap:12px;padding:17px 0;margin-top:23px}.simple-highlights dd{font-size:25px}.simple-highlights dt{font-size:11px}.simple-source-note .case-small-link{margin-left:0}.shortdrama-case[data-case-project=serial] .case-stage-gallery .case-image>a{height:auto;aspect-ratio:3/2}}
+
+.shortdrama-case[data-case-project=serial] .case-section>p:not(.simple-source-note){font-size:16px;line-height:2}
+@media(max-width:700px){.shortdrama-case[data-case-project=serial] .case-section>p:not(.simple-source-note){font-size:15px}}
+
+.overview-venue-photo{margin:24px 0 27px}.overview-venue-photo>a{display:block}.overview-venue-photo img{display:block;width:100%;height:auto}
+
+.overview-evidence{margin:28px 0}.overview-evidence-group+.overview-evidence-group{margin-top:30px}
+.editorial .overview-evidence-group>h4{margin:0 0 16px;color:var(--accent);font:500 18px/1.7 var(--sans)}
+.overview-evidence-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.overview-evidence-primary{grid-template-columns:repeat(2,minmax(0,1fr))}
+.overview-evidence-grid .case-image>a{aspect-ratio:9/20;background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.overview-evidence-grid img{width:100%;height:100%;object-fit:contain}
+.shortdrama-case[data-case-project=serial] .case-stage-gallery .case-image:nth-child(4)>a{position:relative;overflow:hidden}
+.shortdrama-case[data-case-project=serial] .case-stage-gallery .case-image:nth-child(4) img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
+@media(max-width:700px){.overview-evidence-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 12px}.overview-evidence-grid .case-image figcaption{font-size:11px}}
+@media(max-width:420px){.overview-evidence-grid{grid-template-columns:1fr;gap:24px}.overview-evidence-grid .case-image{max-width:330px;width:100%;justify-self:center}}
+
+.project:has(.work-cover-title) .work-image,.shortdrama-cover:has(.work-cover-title)>a{position:relative;overflow:hidden}
+.work-cover-title{position:absolute;inset:auto 0 0;padding:60px 24px 23px;background:linear-gradient(transparent,rgba(0,0,0,.7));color:#fff5e9;font:500 32px/1.45 var(--sans);letter-spacing:3px;text-align:left;pointer-events:none}
+.work-cover-title>[data-edit]{pointer-events:auto}
+@media(max-width:700px){.work-cover-title{font-size:27px;padding:45px 19px 18px;letter-spacing:2px}}
+
+/* 两部照片封面的海报式艺术字，保留可编辑文字。 */
+.work-cover-title>[data-edit]{display:inline-block;max-width:100%;transform-origin:left bottom}
+.project[data-project=serial] .work-cover-title,.shortdrama-case[data-case-project=serial] .work-cover-title{padding-top:82px;padding-bottom:26px;color:#fff0cf;font-family:"Songti SC","Noto Serif SC",STSong,serif;font-size:47px;font-weight:900;line-height:1.35;letter-spacing:2px;text-shadow:1px 2px 0 #6a3928,0 3px 14px #000;-webkit-text-stroke:.4px currentColor}
+.project[data-project=serial] .work-cover-title>[data-edit],.shortdrama-case[data-case-project=serial] .work-cover-title>[data-edit]{transform:rotate(-3deg) skewX(-7deg)}
+.project[data-project=carnivore] .work-cover-title{padding-top:82px;padding-bottom:24px;color:#fff4e3;font-family:"Songti SC","Noto Serif SC",STSong,serif;font-size:49px;font-weight:900;line-height:1.35;letter-spacing:8px;text-shadow:0 2px 0 #54251d,0 3px 18px #000;-webkit-text-stroke:.25px currentColor}
+.project[data-project=carnivore] .work-cover-title>[data-edit]{transform:skewX(-4deg)}
+.project[data-project=carnivore] .work-cover-title:after{content:"";display:block;width:42px;height:3px;background:#b44e3e;margin-top:9px}
+@media(max-width:700px){.project[data-project=serial] .work-cover-title,.shortdrama-case[data-case-project=serial] .work-cover-title{font-size:36px;padding-bottom:21px;letter-spacing:1px}.project[data-project=carnivore] .work-cover-title{font-size:38px;letter-spacing:5px;padding-bottom:19px}}
+
+/* 暖金色与深红色阴影呼应《肉食动物》的红幕舞台。 */
+.project[data-project=carnivore] .work-cover-title{color:#f0cf9e;font-size:52px;letter-spacing:7px;font-style:italic;line-height:1.3;padding-bottom:25px;text-shadow:2px 2px 0 #613027,0 4px 15px rgba(15,5,3,.95);-webkit-text-stroke:.45px currentColor}
+.project[data-project=carnivore] .work-cover-title>[data-edit]{transform:rotate(-2deg) skewX(-5deg)}
+.project[data-project=carnivore] .work-cover-title:after{width:58px;height:2px;background:#c5694e;margin-top:12px;transform:rotate(-2deg);transform-origin:left}
+@media(max-width:700px){.project[data-project=carnivore] .work-cover-title{font-size:39px;letter-spacing:5px;padding-bottom:20px}}
+
+@media(max-width:700px){.project[data-project=carnivore] .work-cover-title{translate:0 max(0px,calc(330px - 60vw))}}
